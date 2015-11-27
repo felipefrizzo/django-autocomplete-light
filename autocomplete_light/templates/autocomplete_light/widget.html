@@ -8,23 +8,27 @@
 
 {% block deck %}
     {# a deck that should contain the list of selected options #}
-    <span id="{{ widget.html_id }}-deck" class="deck" >
-        {% for choice in choices %}
-            {{ choice|autocomplete_light_choice_html:autocomplete }}
-        {% endfor %}
-    </span>
+    {# <span id="{{ widget.html_id }}-deck" class="deck"> #}
+    {#     {% for choice in choices %} #}
+    {#         {{ choice|autocomplete_light_choice_html:autocomplete }} #}
+    {#     {% endfor %} #}
+    {# </span> #}
 {% endblock %}
 
 {% block input %}
     {# a text input, that is the 'autocomplete input' #}
-    <input type="text" name="{{ name }}-autocomplete" id="{{ widget.html_id }}-autocomplete" value="" {{ attrs }} />
+        {% for choice in choices %}
+            <input type="text" name="{{ name }}-autocomplete" id="{{ widget.html_id }}-deck" class="deck form-control" value="{{ choice }}" {{ attrs }}/>
+        {% endfor %}
+    {# <input type="text" name="{{ name }}-autocomplete" id="{{ widget.html_id }}-autocomplete" value="" {{ attrs }} /> #}
 {% endblock %}
 
 {% block add_another %}
     {# A link to add a new choice using a popup #}
     {% if autocomplete.add_another_url_name %}
     <a href="{% block add_another_href %}{{ autocomplete.get_add_another_url }}{% endblock %}" class="autocomplete-add-another" id="add_{{ widget.html_id }}" style="display:none;">
-        <img src="{% static 'admin/img/icon_addlink.gif' %}" width="10" height="10" alt="{% trans 'Add another' %}" />
+{#        <img src="{% static 'admin/img/icon_addlink.gif' %}" width="10" height="10" alt="{% trans 'Add another' %}" /> #}
+        <i style="color: green" class="fa fa-plus"></i>
     </a>
     {% endif %}
 {% endblock %}
@@ -42,7 +46,8 @@
     {# a hidden element that serves as template for the 'remove from deck' button #}
     <span style="display:none" class="remove">
         {# This will be appended to choices on the deck, it's the remove button #}
-        ˣ
+        {# ˣ #}
+        <i class="fa fa-times"></i>
     </span>
 {% endblock %}
 
