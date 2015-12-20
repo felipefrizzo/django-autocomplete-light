@@ -19,6 +19,8 @@
     {# a text input, that is the 'autocomplete input' #}
         {% for choice in choices %}
             <input type="text" name="{{ name }}-autocomplete" id="{{ widget.html_id }}-deck" class="deck form-control" value="{{ choice }}" {{ attrs }}/>
+        {% empty %}
+            <input type="text" name="{{ name }}-autocomplete" id="{{ widget.html_id }}-deck" value="" {{ attrs }}/>
         {% endfor %}
     {# <input type="text" name="{{ name }}-autocomplete" id="{{ widget.html_id }}-autocomplete" value="" {{ attrs }} /> #}
 {% endblock %}
