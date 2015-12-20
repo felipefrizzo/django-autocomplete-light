@@ -107,7 +107,7 @@ yourlabs.Widget.prototype.selectChoice = function(choice) {
     this.addToSelect(choice, value);
 
     var index = $(':input:visible').index(this.input);
-    this.resetDisplay();
+    //this.resetDisplay();
     if (this.clearInputOnSelectChoice === '1') {
         this.input.val(choice.valueOf().text());
         this.autocomplete.value = '';
