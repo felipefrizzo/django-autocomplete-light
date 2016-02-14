@@ -194,8 +194,7 @@ class WidgetBase(object):
         attrs.setdefault('data-autocomplete-choice-selector', '[data-value]')
         attrs.setdefault('data-autocomplete-url',
                          self.autocomplete().get_absolute_url())
-        attrs.setdefault('placeholder', _(
-            'type some text to search in this autocomplete').capitalize())
+        attrs.setdefault('placeholder', _('').capitalize())
 
         # for backward compatibility
         for key, value in self.autocomplete_js_attributes.items():
